@@ -47,7 +47,7 @@
                                     <form action="{{url('$clasificacion.destroy',$clasificacion->id_clasificacion)}}">
                                         @csrf
                                         @method('Delete')
-                                        <input type="submit" class="btn btn-danger" value="eliminar">
+                                        <input type="submit" class="btn btn-danger" value="Eliminar">
                                     </form> </td>
                                 <td>{{$clasificacion->id_clasificacion}}</td>
                                 <td>{{$clasificacion->desc_c}}</td>
