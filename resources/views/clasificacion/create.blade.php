@@ -13,10 +13,25 @@
 </head>
 <body>
     <div class="container">
-        <h4>Nuena clasificacion</h4>
+        <h4>Nueva clasificacion</h4>
         <div class="row">
             <div class="col-x1-12">
-
+                <form href="clasificacion.store" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <label for="id_clasificacion">ID_clasificacion</label>
+                        <input type="text" class="form-control" name="id_cla" required maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="desc_c">descripcion_clasificacion</label>
+                        <input type="text" class="form-control" name="desc_c" required maxlength="10">
+                    </div>
+                    <div class="from-group">
+                        <input type="submit" class="btn btn-primary" value="guardar">
+                        <input type="reset" class="btn btn-defaul" value="cancelar">
+                        <a href="javascript:history.back()">Ir al listado</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

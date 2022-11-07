@@ -34,7 +34,7 @@ class ClasifiacionController extends Controller
      */
     public function create()
     {
-        return view('clasificacion.create',compact('clasificacion'));
+        return view('clasificacion.create',);
     }
 
     /**
@@ -45,7 +45,11 @@ class ClasifiacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clasificacion= new Clasificacion;
+        $clasificacion->id_clasificacion=$request->input('id_clasificacion');
+        $clasificacion->desc_c=$request->input('desc_c');
+        $clasificacion->save();
+        return redirect()->route('clasificacion.index');
     }
 
     /**
@@ -65,9 +69,10 @@ class ClasifiacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_clasificacion)
     {
-        //
+        $clasificacion=$clasificacion::findOrfail($id_clasificacion);
+        return view('clasificacion.edit',compact('clasificacion'));
     }
 
     /**
@@ -77,9 +82,13 @@ class ClasifiacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_clasificacion)
     {
-        //
+        $clasificacion=Clasificacion::finddOrFail($id_clasificacion);
+        $clasificacion->id_clasificacion=$request->input-c('id_clasificacion');
+        $clasificacion->desc_c=$request->input('desc');
+        $clasificacion->save();
+        return redirect()->route('clasificacion.index');
     }
 
     /**
@@ -88,8 +97,10 @@ class ClasifiacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_clasificacion)
     {
-        //
+    $clasificacion=Clasificacion::findOdail($id_clasificacion);
+    $clasificacion->delete();
+        return redirect()->route('clasificacion.index');
     }
 }

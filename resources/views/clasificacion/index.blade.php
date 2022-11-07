@@ -16,7 +16,7 @@
         <h4>gestion de clasificacion</h4>
         <div class="row">
              <div class="col-x1-12">
-                 <form action="" method="get">
+                 <form href="clasificacion.index" method="get">
                      <div class="form-row">
                          <div class="col-sm-4">
                             <input type="text" class="form-control" name="texto" value="{{$texto}}">
@@ -25,7 +25,7 @@
                             <input type="submit" class="btn btn-primary" value="buscar">
                          </div>
                          <div class="col-auto">
-                             <a class="btn btn-success"></a>
+                             <a  href="clasificacion.create" class="btn btn-success">nuevo</a>
                          </div>
                      </div>
                  </form>
@@ -43,7 +43,12 @@
                         <tbody>
                         @foreach($clasificacion as $clasificacion)
                             <tr>
-                                <td>Editar | Eliminar</td>
+                                <td><a href="{{url('clasificacion.edit',$clasificacion->id_clasificacion)}}" class="btn btn-warning btn-sm">Editar</a> |
+                                    <form action="{{url('$clasificacion.destroy',$clasificacion->id_clasificacion)}}">
+                                        @csrf
+                                        @method('Delete')
+                                        <input type="submit" class="btn btn-danger" value="eliminar">
+                                    </form> </td>
                                 <td>{{$clasificacion->id_clasificacion}}</td>
                                 <td>{{$clasificacion->desc_c}}</td>
 

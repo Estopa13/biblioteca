@@ -11,6 +11,7 @@ class Clasificacion extends Model
 
     protected  $table="clasificaciones";
     protected $primaryKey="id_clasificacion";
-    protected $fillable=['desc_c'];
+    protected $fillable=['id_clasificacion','desc_c'];
 
+    public $timestamps= false;
 }
